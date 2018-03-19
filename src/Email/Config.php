@@ -20,7 +20,7 @@ class Config implements ConfigInterface
 {
     
     /**
-     * @var array|[] $options The list of avaliable options.
+     * @var array $options The list of avaliable options.
      */
     private $options = [
         'mode' => [
@@ -35,9 +35,9 @@ class Config implements ConfigInterface
     ];
     
     /**
-     * @var array|[] $current_options The config options.
+     * @var array $current_options The config options.
      */
-    private $current_options;
+    private $current_options = [];
     
     /**
      * Create a new config.
