@@ -28,8 +28,6 @@ before_script:
     - mkdir -p build/logs
     - ls -al
 script:
-    - composer validate
-    - composer update
     - ./vendor/bin/phpcs --standard=psr2 src/
     - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
     - ./vendor/bin/psalm
