@@ -2,6 +2,10 @@
     "name": "celestial-body/betelgeuse",
     "description": "Validate user input and output safely with the Betelgeuse Star System",
     "keywords": [
+        "php56",
+        "php70",
+        "php71",
+        "php72"
     ],
     "homepage": "https://github.com/Celestial-Body/Betelgeuse",
     "type": "library",
