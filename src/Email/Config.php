@@ -45,7 +45,7 @@ class Config implements ConfigInterface
      * setting.
      *
      * @param array|[] $options The options to pass.
-     * 
+     *
      * @throws InvalidArgumentException If the data type for each option
      *                                  is invalid.
      * @throws InvalidArgumentException If the options array is not an array
