@@ -116,5 +116,5 @@ class Config implements ConfigInterface
             }
         }
         $this->current_options = $options;
-    }   
+    }
 }
