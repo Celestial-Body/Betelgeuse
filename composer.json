@@ -28,7 +28,8 @@
             "Betelgeuse\\Validator\\": "./src"
         },
         "files": [
-            "./version.php"
+            "./version.php",
+            "./functions.php",
             "./debugging.php",
             "./inject.php"
         ]
