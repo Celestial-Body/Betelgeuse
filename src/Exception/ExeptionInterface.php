@@ -12,5 +12,5 @@ namespace Betelgeuse\Validator\Exception;
  * ExceptionInterface.
  */
 interface ExceptionInterface
-{   
+{
 }
