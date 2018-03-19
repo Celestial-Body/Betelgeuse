@@ -28,6 +28,7 @@
             "Betelgeuse\\Validator\\": "./src"
         },
         "files": [
+            "./debugging.php",
             "./inject.php"
         ]
     },
