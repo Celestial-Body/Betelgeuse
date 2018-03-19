@@ -12,5 +12,5 @@ namespace Betelgeuse\Validator\Exception;
  * DomainException.
  */
 class DomainException extends \DomainException implements ExceptionInterface
-{   
+{
 }
