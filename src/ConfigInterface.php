@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @license <https://github.com/Celestial-Body/Betelgeuse/blob/master/LICENSE> GPL-3.0 License.
  */
  
-namespace Betelgeuse\Validator\Email;
+namespace Betelgeuse\Validator;
 
 /**
  * ConfigInterface.
