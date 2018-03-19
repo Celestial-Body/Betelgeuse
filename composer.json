@@ -26,7 +26,10 @@
     "autoload": {
         "psr-4": {
             "Betelgeuse\\Validator\\": "./src"
-        }
+        },
+        "files": [
+            "./inject.php"
+        ]
     },
     "suggest": {
         "egulias/email-validator": "For strict email validation."
