@@ -44,7 +44,7 @@ class Config implements ConfigInterface
      * Validate the array before
      * setting.
      *
-     * @param array|[] $options The options to pass.
+     * @param array $options The options to pass.
      *
      * @throws InvalidArgumentException If the data type for each option
      *                                  is invalid.
@@ -54,7 +54,7 @@ class Config implements ConfigInterface
      * @throws DomainException          If the data is invalid.
      * @throws DomainException          If the options array depth is incorrect.
      *
-     * @return void.
+     * @return void Return nothing.
      */
     public function __construct($options = [])
     {
