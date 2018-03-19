@@ -56,7 +56,7 @@ class Config implements ConfigInterface
      *
      * @return void.
      */
-    function __construct($options = [])
+    public function __construct($options = [])
     {
         if (!\is_array($optons) || empty($options)) {
             throw new InvalidArgumentException(\sprintf(
