@@ -35,7 +35,7 @@ interface ConfigInterface
      *
      * @return void Return nothing.
      */
-    public function __destruct()
+    public function __destruct();
     
     /**
      * Get the config options.
