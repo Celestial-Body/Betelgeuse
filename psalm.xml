@@ -6,4 +6,6 @@
     <projectFiles>
         <directory name="./src" />
     </projectFiles>
+    <RedundantConditionGivenDocblockType errorLevel="info" /><!-- We can clean this up later -->
+    <MixedAssignment errorLevel="info" /><!-- This is okay -->
 </psalm>
