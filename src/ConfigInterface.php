@@ -6,10 +6,10 @@
  * @license <https://github.com/Celestial-Body/Betelgeuse/blob/master/LICENSE> GPL-3.0 License.
  */
  
-namespace Betelgeuse\Validator\Email;
+namespace Betelgeuse\Validator;
 
 /**
- * Config.
+ * ConfigInterface.
  */
 interface ConfigInterface
 {
