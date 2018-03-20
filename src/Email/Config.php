@@ -122,7 +122,7 @@ class Config implements ConfigInterface
      *
      * @return array The config options array.
      */
-    public function getOptions(): array
+    public function getOptions()
     {
         if (empty($this->current_options)) {
             throw new InvalidArgumentException('The config options array is empty.');
@@ -151,7 +151,7 @@ class Config implements ConfigInterface
      *
      * @codeCoverageIgnore
      */
-    public function __sleep(): array
+    public function __sleep()
     {
         return [];
     }
