@@ -8,7 +8,8 @@
         "php72",
         "betelgeuse",
         "validator-component",
-        "secure-by-default"
+        "secure-by-default",
+        "celestial-body"
     ],
     "homepage": "https://github.com/Celestial-Body/Betelgeuse",
     "type": "library",
