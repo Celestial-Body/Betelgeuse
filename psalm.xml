@@ -6,6 +6,10 @@
     <projectFiles>
         <directory name="./src" />
     </projectFiles>
-    <RedundantConditionGivenDocblockType errorLevel="info" /><!-- We can clean this up later -->
-    <MixedAssignment errorLevel="info" /><!-- This is okay -->
+    <issueHandlers>
+        <RedundantConditionGivenDocblockType errorLevel="info" />
+        <PropertyNotSetInConstructor errorLevel="suppress" />
+        <TooFewArguments errorLevel="suppress" />
+        <MixedAssignment errorLevel="info" />
+    </issueHandlers>
 </psalm>
