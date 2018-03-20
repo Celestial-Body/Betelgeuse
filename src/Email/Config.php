@@ -43,7 +43,7 @@ class Config implements ConfigInterface
         if (empty($options)) {
             throw new InvalidArgumentException(\sprintf(
                 'The config data type is invalid or empty. Data type: %s.',
-                (string) \gettype($options);
+                (string) \gettype($options)
             ));
         } elseif (\depth($options) != 2) {
             throw new DomainException(\sprintf(
