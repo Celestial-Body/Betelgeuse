@@ -85,7 +85,7 @@ class Config implements \Betelgeuse\Validator\ConfigInterface
                             if ($key != 'rcfvalidation'
                                 && $key != 'dnscheckvalidation'
                                 && $key != 'spoofcheckvalidation') {
-                                throw new DomainException('The key value is unknown.');
+                                throw new \Betelgeuse\Validator\Exception\DomainException('The key value is unknown.');
                             }
                         }
                     }
