@@ -10,6 +10,6 @@
         <RedundantConditionGivenDocblockType errorLevel="info" />
         <PropertyNotSetInConstructor errorLevel="suppress" />
         <TooFewArguments errorLevel="suppress" />
-        <MixedAssignment errorLevel="info" />
+        <MixedAssignment errorLevel="suppress" />
     </issueHandlers>
 </psalm>
