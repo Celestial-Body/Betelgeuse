@@ -8,15 +8,10 @@
  
 namespace Betelgeuse\Validator\Email;
 
-use Betelgeuse\Validator\Exception\InvalidArgumentException;
-use Betelgeuse\Validator\Exception\UnexpectedValueException;
-use Betelgeuse\Validator\Exception\DomainException;
-use Betelgeuse\Validator\ConfigInterface;
-
 /**
  * Config.
  */
-class Config implements ConfigInterface
+class Config implements \Betelgeuse\Validator\ConfigInterface
 {
     
     /**
@@ -41,12 +36,12 @@ class Config implements ConfigInterface
     public function __construct(array $options = [])
     {
         if (empty($options)) {
-            throw new InvalidArgumentException(\sprintf(
+            throw new \Betelgeuse\Validator\Exception\InvalidArgumentException(\sprintf(
                 'The config data type is invalid or empty. Data type: %s.',
                 (string) \gettype($options);
             ));
         } elseif (\depth($options) != 2) {
-            throw new DomainException(\sprintf(
+            throw new \Betelgeuse\Validator\Exception\DomainException(\sprintf(
                 'The config depth is incorrect. Array depth: %s.',
                 (string) \depth($options)
             ));
@@ -60,13 +55,13 @@ class Config implements ConfigInterface
                     'mode' =>    '',
                     'plugins' => ''
                 ])) {
-                    throw new UnexpectedValueException('The option does not exist or is no longer used.');
+                    throw new \Betelgeuse\Validator\Exception\UnexpectedValueException('The option does not exist or is no longer used.');
                 }
                 if (\is_array($val)) {
                     if ($option === 'mode') {
                         foreach ($val as $key) {
                             if (!\is_string($key)) {
-                                throw new InvalidArgumentException(\sprintf(
+                                throw new \Betelgeuse\Validator\Exception\InvalidArgumentException(\sprintf(
                                     'The data key has an invalid data type. Data type: %s',
                                     \gettype($key)
                                 ));
@@ -80,7 +75,7 @@ class Config implements ConfigInterface
                     if ($option === 'plugins') {
                         foreach ($val as $key) {
                             if (!\is_string($key)) {
-                                throw new InvalidArgumentException(\sprintf(
+                                throw new \Betelgeuse\Validator\Exception\InvalidArgumentException(\sprintf(
                                     'The data key has an invalid data type. Data type: %s',
                                     \gettype($key)
                                 ));
@@ -93,7 +88,7 @@ class Config implements ConfigInterface
                         }
                     }
                 } else {
-                    throw new InvalidArgumentException(\sprintf(
+                    throw new \Betelgeuse\Validator\Exception\InvalidArgumentException(\sprintf(
                         'The option data type is invalid. Data type: %s',
                         \gettype($val)
                     ));
