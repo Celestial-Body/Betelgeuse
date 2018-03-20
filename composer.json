@@ -6,7 +6,9 @@
         "php70",
         "php71",
         "php72",
-        "betelgeuse"
+        "betelgeuse",
+        "validator-component",
+        "secure-by-default"
     ],
     "homepage": "https://github.com/Celestial-Body/Betelgeuse",
     "type": "library",
