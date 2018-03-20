@@ -20,21 +20,6 @@ class Config implements ConfigInterface
 {
     
     /**
-     * @var array $options The list of avaliable options.
-     */
-    private $options = [
-        'mode' => [
-            'internal',
-            'egulias'
-        ],
-        'plugins' => [
-            'rcfvalidation',
-            'dnscheckvalidation',
-            'spoofcheckvalidation'
-        ]
-    ];
-    
-    /**
      * @var array $current_options The config options.
      */
     private $current_options = [];
@@ -74,8 +59,11 @@ class Config implements ConfigInterface
                 if ($option === 'plugin') {
                     $option = 'plugins';
                 }
-                if (!\array_key_exists($option, $this->$options)) {
-                    throw new UnexpectedValueException('The option does not exist or is no longer used.')
+                if (!\array_key_exists($option, [
+                    'mode' =>    '',
+                    'plugins' => ''
+                ])) {
+                    throw new UnexpectedValueException('The option does not exist or is no longer used.');
                 }
                 if (\is_array($val)) {
                     if ($option === 'mode') {
