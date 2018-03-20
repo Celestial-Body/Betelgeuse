@@ -8,6 +8,9 @@
  
 namespace Betelgeuse\Validator\Email;
 
+use Betelgeuse\Validator\Exception\InvalidArgumentException;
+use Betelgeuse\Validator\Exception\UnexpectedValueException;
+use Betelgeuse\Validator\Exception\DomainException;
 use Betelgeuse\Validator\ConfigInterface;
 
 /**
@@ -26,23 +29,24 @@ class Config implements ConfigInterface
      *
      * @param array $options The options to pass.
      *
-     * @throws Exception If the data type for each option is invalid.
-     * @throws Exception If the options array is not an array or is an empty array.
-     * @throws Exception If the option does not exist.
-     * @throws Exception If the data is invalid.
-     * @throws Exception If the options array depth is incorrect.
+     * @throws InvalidArgumentException If the data type for each option is invalid.
+     * @throws InvalidArgumentException If the options array is not an array or is an empty array.
+     * @throws UnexpectedValueException If the option does not exist.
+     * @throws InvalidArgumentException If the data is invalid.
+     * @throws DomainException          If the options array depth is incorrect.
+     * @throws DomainException          If the key value is unknown.
      *
      * @return void Return nothing.
      */
     public function __construct(array $options = [])
     {
         if (empty($options)) {
-            throw new \Exception(\sprintf(
+            throw new InvalidArgumentException(\sprintf(
                 'The config data type is invalid or empty. Data type: %s.',
                 (string) \gettype($options);
             ));
         } elseif (\depth($options) != 2) {
-            throw new \Exception(\sprintf(
+            throw new DomainException(\sprintf(
                 'The config depth is incorrect. Array depth: %s.',
                 (string) \depth($options)
             ));
@@ -56,27 +60,27 @@ class Config implements ConfigInterface
                     'mode' =>    '',
                     'plugins' => ''
                 ])) {
-                    throw new \Exception('The option does not exist or is no longer used.');
+                    throw new UnexpectedValueException('The option does not exist or is no longer used.');
                 }
                 if (\is_array($val)) {
                     if ($option === 'mode') {
                         foreach ($val as $key) {
                             if (!\is_string($key)) {
-                                throw new \Exception(\sprintf(
+                                throw new InvalidArgumentException(\sprintf(
                                     'The data key has an invalid data type. Data type: %s',
                                     \gettype($key)
                                 ));
                             }
                             if ($key != 'internal'
                                 && $key != 'egulias') {
-                                throw new \Exception('The key value is unknown.');
+                                throw new DomainException('The key value is unknown.');
                             }
                         }
                     }
                     if ($option === 'plugins') {
                         foreach ($val as $key) {
                             if (!\is_string($key)) {
-                                throw new \Exception(\sprintf(
+                                throw new InvalidArgumentException(\sprintf(
                                     'The data key has an invalid data type. Data type: %s',
                                     \gettype($key)
                                 ));
@@ -84,12 +88,12 @@ class Config implements ConfigInterface
                             if ($key != 'rcfvalidation'
                                 && $key != 'dnscheckvalidation'
                                 && $key != 'spoofcheckvalidation') {
-                                throw new \Exception('The key value is unknown.');
+                                throw new DomainException('The key value is unknown.');
                             }
                         }
                     }
                 } else {
-                    throw new \Exception(\sprintf(
+                    throw new InvalidArgumentException(\sprintf(
                         'The option data type is invalid. Data type: %s',
                         \gettype($val)
                     ));
