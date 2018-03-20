@@ -124,7 +124,7 @@ class Config implements ConfigInterface
                 }
             }
         }
-        $this->current_options = $options;
+        $this->current_options = \json_encode($options);
     }
     
     /**
@@ -152,7 +152,7 @@ class Config implements ConfigInterface
         if (empty($this->current_options)) {
             throw new InvalidArgumentException('The config options array is empty.');
         }
-        return (array) $this->current_options;
+        return (array) \json_decode($this->current_options);
     }
     
     /**
