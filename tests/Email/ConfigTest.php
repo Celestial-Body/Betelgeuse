@@ -137,7 +137,7 @@ class ConfigTest extends TestCase
         ]);
         $this->assertTrue(\true);
     }
-    public function testConfig_10()
+    public function testConfig_11()
     {
         $this->expectException(InvalidArgumentException::class);
         $config = new Config([
@@ -149,7 +149,7 @@ class ConfigTest extends TestCase
             ]
         ]);
     }
-    public function testConfig_10()
+    public function testConfig_12()
     {
         $this->expectException(DomainException::class);
         $config = new Config([
