@@ -40,6 +40,7 @@
     "require": {
         "php": "^5.6|^7",
         "symfony/yaml": "^3|^4",
+        "paragonie/sodium_compat": "*",
         "ext-json": "*",
         "ext-xml": "*"
     },
