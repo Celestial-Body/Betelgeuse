@@ -5,7 +5,8 @@
         "php56",
         "php70",
         "php71",
-        "php72"
+        "php72",
+        "betelgeuse"
     ],
     "homepage": "https://github.com/Celestial-Body/Betelgeuse",
     "type": "library",
