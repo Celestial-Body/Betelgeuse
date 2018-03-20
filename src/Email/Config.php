@@ -106,6 +106,8 @@ class Config implements ConfigInterface
      * Wipe the config from memory after it has been used.
      *
      * @return void Return nothing.
+     *
+     * @codeCoverageIgnore
      */
     public function __destruct()
     {
@@ -132,6 +134,8 @@ class Config implements ConfigInterface
      * Hide its internal state from var_dump()
      *
      * @return array
+     *
+     * @codeCoverageIgnore
      */
     public function __debugInfo()
     {
@@ -144,6 +148,8 @@ class Config implements ConfigInterface
      * Disallow serialization.
      *
      * @return array
+     *
+     * @codeCoverageIgnore
      */
     public function __sleep(): array
     {
