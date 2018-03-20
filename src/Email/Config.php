@@ -35,6 +35,7 @@ class Config implements ConfigInterface
      * @throws InvalidArgumentException If the data is invalid.
      * @throws DomainException          If the options array depth is incorrect.
      * @throws DomainException          If the key value is unknown.
+     * @throws DomainException          If both values are passed but only one is required.
      *
      * @return void Return nothing.
      */
@@ -61,6 +62,10 @@ class Config implements ConfigInterface
                         'The option does not exist or is no longer used.'
                     );
                 }
+                $mode_state = 2;
+                $rcfvalidation = 2;
+                $dnscheckvalidation = 2;
+                $spoofcheckvalidation = 2;
                 if (\is_array($val)) {
                     if ($option === 'mode') {
                         foreach ($val as $key) {
@@ -73,6 +78,17 @@ class Config implements ConfigInterface
                             if ($key != 'internal'
                                 && $key != 'egulias') {
                                 throw new DomainException('The key value is unknown.');
+                            }
+                            if ($mode_state == 2) {
+                                if ($mode_state == 4
+                                    || $mode_state == 3) {
+                                    throw new DomainException('Only one value is allowed.');
+                                }
+                                if ($key == 'internal') {
+                                    $mode_state = 4;   
+                                } else {
+                                    $mode_state = 3;   
+                                }
                             }
                         }
                     }
@@ -88,6 +104,15 @@ class Config implements ConfigInterface
                                 && $key != 'dnscheckvalidation'
                                 && $key != 'spoofcheckvalidation') {
                                 throw new DomainException('The key value is unknown.');
+                            }
+                            if ($key == 'rcfvalidation') {
+                                $rfcvalidation = 3;   
+                            }
+                            if ($key == 'dnscheckvalidation') {
+                                $rfcvalidation = 3;   
+                            }
+                            if ($key == 'spoofcheckvalidation') {
+                                $rfcvalidation = 3;   
                             }
                         }
                     }
