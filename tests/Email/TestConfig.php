@@ -41,7 +41,4 @@ class ConfigTest extends TestCase
         $config = new Config([
         ]);
     }
-    /**
-     * }}
-     */
 }
