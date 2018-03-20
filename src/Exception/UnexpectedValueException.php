@@ -11,6 +11,6 @@ namespace Betelgeuse\Validator\Exception;
 /**
  * UnexpectedValueException.
  */
-class UnexpectedValueException extends \UnexpectedValueException implements ExceptionInterface
+class UnexpectedValueException extends \Exception implements ExceptionInterface
 {
 }
