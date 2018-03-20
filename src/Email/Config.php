@@ -26,23 +26,23 @@ class Config implements ConfigInterface
      *
      * @param array $options The options to pass.
      *
-     * @throws InvalidArgumentException If the data type for each option is invalid.
-     * @throws InvalidArgumentException If the options array is not an array or is an empty array.
-     * @throws UnexpectedValueException If the option does not exist.
-     * @throws DomainException          If the data is invalid.
-     * @throws DomainException          If the options array depth is incorrect.
+     * @throws Exception If the data type for each option is invalid.
+     * @throws Exception If the options array is not an array or is an empty array.
+     * @throws Exception If the option does not exist.
+     * @throws Exception If the data is invalid.
+     * @throws Exception If the options array depth is incorrect.
      *
      * @return void Return nothing.
      */
     public function __construct(array $options = [])
     {
         if (empty($options)) {
-            throw new \InvalidArgumentException(\sprintf(
+            throw new \Exception(\sprintf(
                 'The config data type is invalid or empty. Data type: %s.',
                 (string) \gettype($options);
             ));
         } elseif (\depth($options) != 2) {
-            throw new \DomainException(\sprintf(
+            throw new \Exception(\sprintf(
                 'The config depth is incorrect. Array depth: %s.',
                 (string) \depth($options)
             ));
@@ -56,27 +56,27 @@ class Config implements ConfigInterface
                     'mode' =>    '',
                     'plugins' => ''
                 ])) {
-                    throw new \UnexpectedValueException('The option does not exist or is no longer used.');
+                    throw new \Exception('The option does not exist or is no longer used.');
                 }
                 if (\is_array($val)) {
                     if ($option === 'mode') {
                         foreach ($val as $key) {
                             if (!\is_string($key)) {
-                                throw new \InvalidArgumentException(\sprintf(
+                                throw new \Exception(\sprintf(
                                     'The data key has an invalid data type. Data type: %s',
                                     \gettype($key)
                                 ));
                             }
                             if ($key != 'internal'
                                 && $key != 'egulias') {
-                                throw new \DomainException('The key value is unknown.');
+                                throw new \Exception('The key value is unknown.');
                             }
                         }
                     }
                     if ($option === 'plugins') {
                         foreach ($val as $key) {
                             if (!\is_string($key)) {
-                                throw new \InvalidArgumentException(\sprintf(
+                                throw new \Exception(\sprintf(
                                     'The data key has an invalid data type. Data type: %s',
                                     \gettype($key)
                                 ));
@@ -84,12 +84,12 @@ class Config implements ConfigInterface
                             if ($key != 'rcfvalidation'
                                 && $key != 'dnscheckvalidation'
                                 && $key != 'spoofcheckvalidation') {
-                                throw new \DomainException('The key value is unknown.');
+                                throw new \Exception('The key value is unknown.');
                             }
                         }
                     }
                 } else {
-                    throw new \InvalidArgumentException(\sprintf(
+                    throw new \Exception(\sprintf(
                         'The option data type is invalid. Data type: %s',
                         \gettype($val)
                     ));
