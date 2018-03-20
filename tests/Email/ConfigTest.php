@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 use Betelgeuse\Validator\Exception\InvalidArgumentException;
 use Betelgeuse\Validator\Exception\UnexpectedValueException;
 use Betelgeuse\Validator\Exception\DomainException;
-use Betelgeuse\Validator\Email\Config
+use Betelgeuse\Validator\Email\Config;
 
 /**
  * ConfigTest.
