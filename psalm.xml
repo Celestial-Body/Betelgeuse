@@ -9,7 +9,6 @@
     <issueHandlers>
         <RedundantConditionGivenDocblockType errorLevel="info" />
         <PropertyNotSetInConstructor errorLevel="suppress" />
-        <UnrecognizedExpression errorLevel="suppress" />
         <TooFewArguments errorLevel="suppress" />
         <MixedAssignment errorLevel="suppress" />
     </issueHandlers>
