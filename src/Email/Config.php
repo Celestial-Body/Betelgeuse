@@ -85,9 +85,9 @@ class Config implements ConfigInterface
                                     throw new DomainException('Only one value is allowed.');
                                 }
                                 if ($key == 'internal') {
-                                    $mode_state = 4;   
+                                    $mode_state = 4;
                                 } else {
-                                    $mode_state = 3;   
+                                    $mode_state = 3;
                                 }
                             }
                         }
@@ -106,13 +106,13 @@ class Config implements ConfigInterface
                                 throw new DomainException('The key value is unknown.');
                             }
                             if ($key == 'rcfvalidation') {
-                                $rfcvalidation = 3;   
+                                $rfcvalidation = 3;
                             }
                             if ($key == 'dnscheckvalidation') {
-                                $rfcvalidation = 3;   
+                                $rfcvalidation = 3;
                             }
                             if ($key == 'spoofcheckvalidation') {
-                                $rfcvalidation = 3;   
+                                $rfcvalidation = 3;
                             }
                         }
                     }
