@@ -41,6 +41,126 @@ class ConfigTest extends TestCase
         $config = new Config([
         ]);
     }
+    public function testConfig_2()
+    {
+        $this->expectException(DomainException::class);
+        $config = new Config([
+            'foo',
+            'bar'
+        ]);
+    }
+    public function testConfig_3()
+    {
+        $this->expectException(DomainException::class);
+        $config = new Config([
+            'foo',
+            'bar' => [
+                'meo' => [
+                     'test' => \true
+                ]
+            ]
+        ]);
+    }
+    public function testConfig_4()
+    {
+        $this->expectException(UnexpectedValueException::class);
+        $config = new Config([
+            'hello_world' => [
+                'foo',
+                'bar'
+            ],
+            'bar' => [
+                'hello',
+                'world'
+            ]
+        ]);
+    }
+    public function testConfig_5()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $config = new Config([
+            'mode' => [
+                true
+            ]
+        ]);
+    }
+    public function testConfig_6()
+    {
+        $this->expectException(DomainException::class);
+        $config = new Config([
+            'mode' => [
+                'hello_world'
+            ]
+        ]);
+    }
+    public function testConfig_7()
+    {
+        $this->expectException(DomainException::class);
+        $config = new Config([
+            'mode' => [
+                'internal',
+                'egulias'
+            ]
+        ]);
+    }
+    public function testConfig_8()
+    {
+        $this->expectException(DomainException::class);
+        $config = new Config([
+            'mode' => [
+                'egulias'
+            ]
+        ]);
+    }
+    public function testConfig_9()
+    {
+        $this->expectException(DomainException::class);
+        $config = new Config([
+            'mode' => [
+                'egulias'
+            ],
+            'plugin' => [    
+            ]
+        ]);
+    }
+    public function testConfig_10()
+    {
+        $config = new Config([
+            'mode' => [
+                'egulias'
+            ],
+            'plugins' => [
+                'rcfvalidation',
+                'dnscheckvalidation',
+                'spoofcheckvalidation'
+            ]
+        ]);
+        $this->assertTrue(\true);
+    }
+    public function testConfig_10()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $config = new Config([
+            'mode' => [
+                'egulias'
+            ],
+            'plugins' => [
+                true
+            ]
+        ]);
+    }
+    public function testConfig_10()
+    {
+        $this->expectException(DomainException::class);
+        $config = new Config([
+            'mode' => [
+                'egulias'
+            ],
+            'plugins' => [
+                'hello_world'
+            ]
+        ]);
+    }
     /**
      * }}
      */
