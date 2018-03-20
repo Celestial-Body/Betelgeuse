@@ -28,8 +28,8 @@ before_script:
     - mkdir -p build/logs
     - ls -al
 script:
-    - ./vendor/bin/phpcs --standard=psr2 ./src/
     - ./vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml
+    - ./vendor/bin/phpcs --standard=psr2 ./src
     - ./vendor/bin/psalm
 cache:
     directories:
