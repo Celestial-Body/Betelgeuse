@@ -56,9 +56,9 @@ class Config implements ConfigInterface
      *
      * @return void Return nothing.
      */
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
-        if (!\is_array($options) || empty($options)) {
+        if (empty($options)) {
             throw new InvalidArgumentException(\sprintf(
                 'The config data type is invalid or empty. Data type: %s.',
                 (string) \gettype($options);
