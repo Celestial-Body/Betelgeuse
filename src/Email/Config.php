@@ -30,7 +30,7 @@ class Config implements ConfigInterface
      * @param array $options The options to pass.
      *
      * @throws InvalidArgumentException If the data type for each option is invalid.
-     * @throws InvalidArgumentException If the options array is not an array or is an empty array.
+     * @throws InvalidArgumentException If the options array is an empty array.
      * @throws UnexpectedValueException If the option does not exist.
      * @throws InvalidArgumentException If the data is invalid.
      * @throws DomainException          If the options array depth is incorrect.
@@ -41,10 +41,7 @@ class Config implements ConfigInterface
     public function __construct(array $options = [])
     {
         if (empty($options)) {
-            throw new InvalidArgumentException(\sprintf(
-                'The config data type is invalid or empty. Data type: %s.',
-                (string) \gettype($options)
-            ));
+            throw new InvalidArgumentException('The config array is empty.');
         } elseif (\depth($options) != 2) {
             throw new DomainException(\sprintf(
                 'The config depth is incorrect. Array depth: %s.',
@@ -103,5 +100,43 @@ class Config implements ConfigInterface
             }
         }
         $this->current_options = $options;
+    }
+    
+    /**
+     * Get the config options.
+     *
+     * @throws InvalidArgumentException If the config options array
+     *                                  is empty.
+     *
+     * @return array The config options array.
+     */
+    public function getOptions()
+    {
+        if (empty($this->current_options)) {
+            throw new InvalidArgumentException('The config options array is empty.');
+        }
+        return (array) $this->current_options;
+    }
+    
+    /**
+     * Hide its internal state from var_dump()
+     *
+     * @return array
+     */
+    public function __debugInfo()
+    {
+        return [
+            'internalConfigOptions' => '*'
+        ];
+    }
+    
+    /**
+     * Disallow serialization.
+     *
+     * @return array
+     */
+    public function __sleep(): array
+    {
+        return [];
     }
 }
