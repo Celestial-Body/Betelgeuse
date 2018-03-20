@@ -11,6 +11,6 @@ namespace Betelgeuse\Validator\Exception;
 /**
  * ExceptionInterface.
  */
-interface ExceptionInterface
+interface ExceptionInterface extends Throwable
 {
 }
