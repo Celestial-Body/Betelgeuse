@@ -103,6 +103,16 @@ class Config implements ConfigInterface
     }
     
     /**
+     * Wipe the config from memory after it has been used.
+     *
+     * @return void Return nothing.
+     */
+    public function __destruct()
+    {
+        \sodium_memzero($this->current_options);
+    }
+    
+    /**
      * Get the config options.
      *
      * @throws InvalidArgumentException If the config options array
