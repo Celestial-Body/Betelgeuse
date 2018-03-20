@@ -45,7 +45,7 @@ interface ConfigInterface
      *
      * @return array The config options array.
      */
-    public function getOptions(): array;
+    public function getOptions();
     
     /**
      * Hide its internal state from var_dump()
@@ -59,5 +59,5 @@ interface ConfigInterface
      *
      * @return array
      */
-    public function __sleep(): array;
+    public function __sleep();
 }
