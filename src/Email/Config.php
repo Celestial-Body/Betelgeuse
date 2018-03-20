@@ -47,7 +47,7 @@ class Config implements \Betelgeuse\Validator\ConfigInterface
             ));
         } else {
             foreach ($options as $option => $val) {
-                $option = \strtolower($option);
+                $option = \strtolower((string) $option);
                 if ($option === 'plugin') {
                     $option = 'plugins';
                 }
