@@ -31,6 +31,13 @@ interface ConfigInterface
     public function __construct(array $options = []);
     
     /**
+     * Wipe the config from memory after it has been used.
+     *
+     * @return void Return nothing.
+     */
+    public function __destruct()
+    
+    /**
      * Get the config options.
      *
      * @throws InvalidArgumentException If the config options array
