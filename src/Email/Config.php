@@ -124,19 +124,7 @@ class Config implements ConfigInterface
                 }
             }
         }
-        $this->current_options = \json_encode($options);
-    }
-    
-    /**
-     * Wipe the config from memory after it has been used.
-     *
-     * @return void Return nothing.
-     *
-     * @codeCoverageIgnore
-     */
-    public function __destruct()
-    {
-        \sodium_memzero($this->current_options);
+        $this->current_options = $options;
     }
     
     /**
@@ -152,7 +140,7 @@ class Config implements ConfigInterface
         if (empty($this->current_options)) {
             throw new InvalidArgumentException('The config options array is empty.');
         }
-        return (array) \json_decode($this->current_options);
+        return (array) $this->current_options;
     }
     
     /**
