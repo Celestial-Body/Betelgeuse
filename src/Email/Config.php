@@ -55,7 +55,9 @@ class Config implements \Betelgeuse\Validator\ConfigInterface
                     'mode' =>    '',
                     'plugins' => ''
                 ])) {
-                    throw new \Betelgeuse\Validator\Exception\UnexpectedValueException('The option does not exist or is no longer used.');
+                    throw new \Betelgeuse\Validator\Exception\UnexpectedValueException(
+                        'The option does not exist or is no longer used.'
+                    );
                 }
                 if (\is_array($val)) {
                     if ($option === 'mode') {
@@ -68,7 +70,7 @@ class Config implements \Betelgeuse\Validator\ConfigInterface
                             }
                             if ($key != 'internal'
                                 && $key != 'egulias') {
-                                throw new DomainException('The key value is unknown.');
+                                throw new \Betelgeuse\Validator\Exception\DomainException('The key value is unknown.');
                             }
                         }
                     }
