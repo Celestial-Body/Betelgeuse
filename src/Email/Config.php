@@ -119,7 +119,7 @@ class Config implements ConfigInterface
                     }
                 } else {
                     if ($option == 'show_errors') {
-                        if (!is_bool((bool) $val)) {
+                        if (!\is_bool((bool) $val)) {
                             goto doError;
                         }
                         goto skipError;
