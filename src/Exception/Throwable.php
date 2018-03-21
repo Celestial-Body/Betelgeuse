@@ -13,6 +13,7 @@ namespace Betelgeuse\Validator\Exception;
  */
 interface Throwable
 {
+
     public function getMessage();
     public function getCode();
     public function getFile();
