@@ -34,7 +34,6 @@
         "files": [
             "./version.php",
             "./functions.php",
-            "./debugging.php",
             "./inject.php"
         ]
     },
