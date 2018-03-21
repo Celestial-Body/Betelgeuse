@@ -8,7 +8,9 @@ Validate user input and output safely with the Betelgeuse Star System
 
 You should always use composer as your dependency manager. You can install composer at the [Composer Website](https://getcomposer.org/). Simply run th command below to install the Betelgeuse Star System.
 
-`composer require celestial-body/betelgeuse`
+```sh
+composer require celestial-body/betelgeuse
+```
 
 ## License
 
