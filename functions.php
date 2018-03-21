@@ -28,3 +28,15 @@ if (!function_exists('canVarLoop')) {
         return (bool) (is_array($input) || $input instanceof Traversable) ? true : false;
     }
 }
+
+if (!function_exists('isArrayMulti')) {
+    function isArrayMulti($array)
+    {
+        foreach ($array as $val) {
+            if (is_array($val)) {
+                return (bool) true;
+            }
+        }
+        return (bool) false;
+    }
+}
