@@ -1,5 +1,5 @@
 # Contributing Guidelines
-Hi i see you are looking to contribute which is great, we are looking foward with what ideas you have to make this repository better. Before you start contributing please read each section below. After the best way to contribute is to fork and start contributing.
+Hi i see you are looking to contribute which is great, we are looking foward with what ideas you have to make the Betelgeuse Star System better. Before you start contributing please read each section below. After the best way to contribute is to fork and start contributing.
 
 ## Submitting Issues
 
