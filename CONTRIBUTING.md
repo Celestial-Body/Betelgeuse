@@ -15,9 +15,9 @@ Make sure you follow the correct coding standards, makes our code more readable.
 
   - We indent using four spaces (use spacebar).
   - Namespaces needs an empty line before and after its declaration.
-  - After declaring a class there needs to be an empty line at the beginning of the class.
   - All classes have to start with a capital letter and followed by lower case characters, never use `_`.
   - The code in each function the exponents need to stay on the same line as an if, foreach, and other statements.
+  - After declaring a class there needs to be an empty line at the beginning of the class, unless there are no method or variables.
   - You always declare public class variables first then private and then protected and then the same thing with functions.
   - After declaration of a function you need to put the exponents on a new line.  
   - After declaration of a class you need to put the exponents on a new line.
