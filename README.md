@@ -2,6 +2,14 @@
 
 -----
 
+Validate user input and output safely with the Betelgeuse Star System
+
+## Supported Versions
+
+
+## License
+GPL-3.0 - A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
+
 ## Links
 - Documentation is at https://celestial-body.github.io/Betelgeuse/introduction
 - File issues at https://github.com/Celestial-Body/Betelgeuse/issues
