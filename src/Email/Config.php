@@ -43,9 +43,9 @@ class Config implements ConfigInterface
     {
         if (empty($options)) {
             throw new InvalidArgumentException('The config array is empty.');
-        } elseif (\depth($options) > 2) {
+        } elseif (\depth($options) != 2) {
             throw new DomainException(\sprintf(
-                'The config depth is incorrect. Array depth: %s.',
+                'The config depth is incorrect. Array depth: %s. 2 is required since the mode option is required.',
                 (string) \depth($options)
             ));
         } else {
