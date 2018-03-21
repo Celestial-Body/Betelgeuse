@@ -161,6 +161,13 @@ class ConfigTest extends TestCase
             ]
         ]);
     }
+    public function testConfig_13()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $config = new Config([
+            'mode' => true
+        ]);
+    }
     /**
      * }}
      */
