@@ -79,16 +79,16 @@ class Config implements ConfigInterface
                                 && $key != 'egulias') {
                                 throw new DomainException('The key value is unknown.');
                             }
-                            if ($mode_state == 2) {
-                                if ($mode_state == 4
-                                    || $mode_state == 3) {
-                                    throw new DomainException('Only one value is allowed.');
-                                }
-                                if ($key == 'internal') {
-                                    $mode_state = 4;
-                                } else {
-                                    $mode_state = 3;
-                                }
+                            if (($mode_state == 4
+                                && $key == 'egulias')
+                                || ($mode_state == 3
+                                && $key == 'internal')) {
+                                throw new DomainException('Only one value is allowed.');
+                            }
+                            if ($key == 'internal') {
+                                $mode_state = 4;
+                            } else {
+                                $mode_state = 3;
                             }
                         }
                     }
