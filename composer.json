@@ -33,8 +33,7 @@
         },
         "files": [
             "./version.php",
-            "./functions.php",
-            "./inject.php"
+            "./functions.php"
         ]
     },
     "suggest": {
