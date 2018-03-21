@@ -2,13 +2,15 @@
 
 ### 1.x - First Release
 
-- Email Validator
-- Domain Validator
-- Regex Validator
-- Username Validator
-- Name Validator
-- Data Type Validator
-- Array Validator
-- XSS String Validator
-- Algo Validator
-- Validation Chains
+- Add Email Validator
+- Add Domain Validator
+- Add Regex Validator
+- Add Username Validator
+- Add Name Validator
+- Add Data Type Validator
+- Add Array Validator
+- Add XSS String Validator
+- Add Algo Validator
+- Add Range Validator
+- Add Length Validator
+- Add Validation Chains
