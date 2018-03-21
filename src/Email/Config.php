@@ -144,30 +144,4 @@ class Config implements ConfigInterface
         // @codeCoverageIgnoreEnd
         return (array) $this->current_options;
     }
-    
-    /**
-     * Hide its internal state from var_dump()
-     *
-     * @return array
-     *
-     * @codeCoverageIgnore
-     */
-    public function __debugInfo()
-    {
-        return [
-            'internalConfigOptions' => '*'
-        ];
-    }
-    
-    /**
-     * Disallow serialization.
-     *
-     * @return array
-     *
-     * @codeCoverageIgnore
-     */
-    public function __sleep()
-    {
-        return [];
-    }
 }
