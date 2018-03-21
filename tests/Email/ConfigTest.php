@@ -164,4 +164,38 @@ class ConfigTest extends TestCase
     /**
      * }}
      */
+    /**
+     * Get the config options.
+     *
+     * @throws InvalidArgumentException If the config options array
+     *                                  is empty.
+     *
+     * @return array The config options array.
+     */
+    public function testGetConfig()
+    {
+        $config = new Config([
+            'mode' => [
+                'egulias'
+            ],
+            'plugins' => [
+                'rcfvalidation',
+                'dnscheckvalidation',
+                'spoofcheckvalidation'
+            ]
+        ]);
+        $this->assertEquals($config->getOptions(), [
+            'mode' => [
+                'egulias'
+            ],
+            'plugins' => [
+                'rcfvalidation',
+                'dnscheckvalidation',
+                'spoofcheckvalidation'
+            ]
+        ]);
+    }
+    /**
+     * }}
+     */
 }
