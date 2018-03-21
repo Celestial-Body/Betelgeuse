@@ -19,3 +19,4 @@ GPL-3.0 - A short and simple permissive license with conditions only requiring p
 ## Links
 
 - Documentation is at https://celestial-body.github.io/Betelgeuse/introduction
+- Contributing guidelines is at https://github.com/Celestial-Body/Betelgeuse/blob/master/CONTRIBUTING.md
