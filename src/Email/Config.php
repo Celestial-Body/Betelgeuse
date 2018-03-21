@@ -45,7 +45,7 @@ class Config implements ConfigInterface
             throw new InvalidArgumentException('The config array is empty.');
         } elseif (\depth($options) != 2) {
             throw new DomainException(\sprintf(
-                'The config depth is incorrect. Array depth: %s. 2 is required since the mode option is required.',
+                'The config depth is incorrect. Array depth: %s.',
                 (string) \depth($options)
             ));
         } else {
@@ -55,9 +55,8 @@ class Config implements ConfigInterface
                     $option = 'plugins';
                 }
                 if (!\array_key_exists($option, [
-                    'mode' =>        '',
-                    'plugins' =>     '',
-                    'show_errors' => ''
+                    'mode' =>    '',
+                    'plugins' => ''
                 ])) {
                     throw new UnexpectedValueException(
                         'The option does not exist or is no longer used.'
@@ -118,18 +117,10 @@ class Config implements ConfigInterface
                         }
                     }
                 } else {
-                    if ($option == 'show_errors') {
-                        if (!\is_bool((bool) $val)) {
-                            goto doError;
-                        }
-                        goto skipError;
-                    }
-                    doError:
                     throw new InvalidArgumentException(\sprintf(
                         'The option data type is invalid. Data type: %s',
                         \gettype($val)
                     ));
-                    skipError:
                 }
             }
         }
