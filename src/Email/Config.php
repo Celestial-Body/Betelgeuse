@@ -62,7 +62,6 @@ class Config implements ConfigInterface
                         'The option does not exist or is no longer used.'
                     );
                 }
-                $mode_state = 2;
                 if (\is_array($val)) {
                     if ($option === 'mode') {
                         foreach ($val as $key) {
@@ -72,20 +71,8 @@ class Config implements ConfigInterface
                                     \gettype($key)
                                 ));
                             }
-                            if ($key != 'internal'
-                                && $key != 'egulias') {
+                            if ($key != 'egulias') {
                                 throw new DomainException('The key value is unknown.');
-                            }
-                            if (($mode_state == 4
-                                && $key == 'egulias')
-                                || ($mode_state == 3
-                                && $key == 'internal')) {
-                                throw new DomainException('Only one value is allowed.');
-                            }
-                            if ($key == 'internal') {
-                                $mode_state = 4;
-                            } else {
-                                $mode_state = 3;
                             }
                         }
                     }
