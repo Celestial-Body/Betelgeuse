@@ -63,9 +63,6 @@ class Config implements ConfigInterface
                     );
                 }
                 $mode_state = 2;
-                $rcfvalidation = 2;
-                $dnscheckvalidation = 2;
-                $spoofcheckvalidation = 2;
                 if (\is_array($val)) {
                     if ($option === 'mode') {
                         foreach ($val as $key) {
@@ -104,15 +101,6 @@ class Config implements ConfigInterface
                                 && $key != 'dnscheckvalidation'
                                 && $key != 'spoofcheckvalidation') {
                                 throw new DomainException('The key value is unknown.');
-                            }
-                            if ($key == 'rcfvalidation') {
-                                $rfcvalidation = 3;
-                            }
-                            if ($key == 'dnscheckvalidation') {
-                                $rfcvalidation = 3;
-                            }
-                            if ($key == 'spoofcheckvalidation') {
-                                $rfcvalidation = 3;
                             }
                         }
                     }
