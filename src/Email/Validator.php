@@ -8,6 +8,7 @@
  
 namespace Betelgeuse\Validator\Email;
 
+use Betelgeuse\Validator\Exception\InvalidArgumentException;
 use Betelgeuse\Validator\ValidatorInterface;
 use Betelgeuse\Validator\ConfigInterface;
 
