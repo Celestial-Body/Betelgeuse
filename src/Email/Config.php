@@ -55,8 +55,9 @@ class Config implements ConfigInterface
                     $option = 'plugins';
                 }
                 if (!\array_key_exists($option, [
-                    'mode' =>    '',
-                    'plugins' => ''
+                    'mode' =>        '',
+                    'plugins' =>     '',
+                    'show_errors' => ''
                 ])) {
                     throw new UnexpectedValueException(
                         'The option does not exist or is no longer used.'
@@ -117,10 +118,18 @@ class Config implements ConfigInterface
                         }
                     }
                 } else {
+                    if ($option == 'show_errors') {
+                        if (!is_bool((bool) $val)) {
+                            goto doError;
+                        }
+                        goto skipError;   
+                    }
+                    doError:
                     throw new InvalidArgumentException(\sprintf(
                         'The option data type is invalid. Data type: %s',
                         \gettype($val)
                     ));
+                    skipError:
                 }
             }
         }
