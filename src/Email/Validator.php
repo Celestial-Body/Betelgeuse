@@ -27,7 +27,7 @@ class Validator extends AbstractValidator implements ValidatorInterface
     /**
      * Set the config options to use.
      *
-     * @param Betelgeuse\Validator\ValidatorInterface $configOptions The validator config.
+     * @param ValidatorInterface $configOptions The validator config.
      *
      * @throws InvalidArgumentException If it is not a validator config.
      *
