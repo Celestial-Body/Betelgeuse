@@ -122,7 +122,7 @@ class Config implements ConfigInterface
                         if (!is_bool((bool) $val)) {
                             goto doError;
                         }
-                        goto skipError;   
+                        goto skipError;
                     }
                     doError:
                     throw new InvalidArgumentException(\sprintf(
