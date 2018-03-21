@@ -165,7 +165,10 @@ class ConfigTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $config = new Config([
-            'mode' => true
+            'mode' => true,
+            'plugins' => [
+                'hello_world'   
+            ]
         ]);
     }
     /**
