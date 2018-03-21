@@ -146,11 +146,6 @@ class Config implements ConfigInterface
      */
     public function getOptions()
     {
-        // @codeCoverageIgnoreStart
-        if (empty($this->current_options)) {
-            throw new InvalidArgumentException('The config options array is empty.');
-        }
-        // @codeCoverageIgnoreEnd
         return (array) $this->current_options;
     }
 }
