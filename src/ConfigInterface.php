@@ -39,18 +39,4 @@ interface ConfigInterface
      * @return array The config options array.
      */
     public function getOptions();
-    
-    /**
-     * Hide its internal state from var_dump()
-     *
-     * @return array
-     */
-    public function __debugInfo();
-    
-    /**
-     * Disallow serialization.
-     *
-     * @return array
-     */
-    public function __sleep();
 }
