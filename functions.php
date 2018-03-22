@@ -40,3 +40,20 @@ if (!function_exists('isArrayMulti')) {
         return (bool) false;
     }
 }
+
+if (!function_exists('checkdnsrr')) {
+    function checkdnsrr($arg, $record = 'MX')
+    {
+        if (!empty($arg) && !empty($record)) {
+            $record = escapeshellarg($record);
+            $arg = escapeshellarg($arg);
+            exec("nslookup -type=$record $host", $res);
+            foreach ($res as $val) {
+                if (stristr($val, $host)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
