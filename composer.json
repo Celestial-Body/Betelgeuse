@@ -36,12 +36,10 @@
             "./functions.php"
         ]
     },
-    "suggest": {
-        "egulias/email-validator": "For strict email validation."
-    },
     "require": {
         "php": "^5.6|^7",
         "symfony/yaml": "^3|^4",
+        "egulias/email-validator": "~2",
         "ext-json": "*",
         "ext-xml": "*"
     },
