@@ -13,4 +13,7 @@ namespace Betelgeuse\Validator;
  */
 interface ValidatorInterface
 {
+    
+    public function __construct(ConfigInterface $options);
+    public function validate($ts);
 }
