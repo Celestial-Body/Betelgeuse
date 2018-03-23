@@ -9,7 +9,7 @@
 namespace Betelgeuse\Validator\Exception;
 
 /**
- * Throwable
+ * Throwable.
  */
 interface Throwable
 {
