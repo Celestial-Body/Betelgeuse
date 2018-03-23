@@ -7,7 +7,7 @@ Submitting issues will help us identify problems with our code. Before you submi
 
 ## Submitting Changes
 
-Please push a [GitHub Pull Request](https://github.com/Celestial-Body/Betelgeuse/pulls) with a clear description of what is being changed and why. (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, we expect that each commit has a clear explanation of what was done. If the coding standars are not followed we will request changes and once fixed we will consider the pull request.
+Please push a [GitHub Pull Request](https://github.com/Celestial-Body/Betelgeuse/pulls) with a clear description of what is being changed and why. (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, we expect that each commit has a clear explanation of what was done. If the coding standards are not followed we will request changes and once fixed we will consider the pull request.
 
 ## Coding Standards
 
