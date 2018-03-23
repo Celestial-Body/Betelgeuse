@@ -108,6 +108,8 @@ class Config implements ConfigInterface
      * Get the config options.
      *
      * @return array The config options array.
+     *
+     * @codeCoverageIgnore
      */
     public function getOptions()
     {
