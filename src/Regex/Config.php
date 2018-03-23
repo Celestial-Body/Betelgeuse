@@ -78,7 +78,7 @@ class Config implements ConfigInterface
                 }
                 $count = ++$count;
             }
-            if ($count == 2) {
+            if ($count == 3) {
                 throw new DomainException('Cannot use both pattern and patterns at the same time.');
             }
         }
