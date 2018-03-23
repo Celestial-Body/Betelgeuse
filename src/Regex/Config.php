@@ -8,6 +8,7 @@
  
 namespace Betelgeuse\Validator\Regex;
 
+use Betelgeuse\Validator\Exception\UnexpectedValueException;
 use Betelgeuse\Validator\Exception\InvalidArgumentException;
 use Betelgeuse\Validator\Exception\DomainException;
 use Betelgeuse\Validator\ConfigInterface;
@@ -25,6 +26,13 @@ class Config implements ConfigInterface
     private $options = [];
     
     /**
+     * @var array $list A list of allowed offsets.
+     */
+    private $list = [
+        \PREG_OFFSET_CAPTURE
+    ];
+    
+    /**
      * Create and validate a new config.
      *
      * @param array $options The options to pass.
@@ -36,6 +44,7 @@ class Config implements ConfigInterface
      * @throws InvalidArgumentException If $options['patterns'] is not compatible with foreach.
      * @throws InvalidArgumentException If $pattern is not a string.
      * @throws DomainException          If both pattern and patters are used at the same time.
+     * @throws UnexpectedValueException If a the flag or flags is unknown.
      *
      * @return void Return nothing.
      */
@@ -48,7 +57,7 @@ class Config implements ConfigInterface
                 'The variable $options needs an array depth of 1 or 2. Passed: $s.',
                 \depth($options);
             ));
-        } elseif (\count($options) > 2) {
+        } elseif (\count($options) > 4) {
             throw new DomainException('There are too many array key elements.');
         } else {
             $count = 0;
@@ -78,8 +87,18 @@ class Config implements ConfigInterface
                 }
                 $count = ++$count;
             }
-            if ($count == 3) {
+            if ($count == 2) {
                 throw new DomainException('Cannot use both pattern and patterns at the same time.');
+            }
+            if (\array_key_exists('flags')) {
+                if (!\in_array($options['flags'], $this->list)) {
+                    throw new UnexpectedValueExcepton('The variable $options[\'flags\'] is unknown.');   
+                }
+            }
+            if (\array_key_exists('offset')) {
+                if (!\is_int($options['offset'])) {
+                    throw new InvalidArgumentExcepton('The variable $options[\'offest\'] needs to be an integer.');   
+                }
             }
         }
         $this->options = $options;
