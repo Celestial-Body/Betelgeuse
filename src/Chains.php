@@ -66,7 +66,7 @@ class Chains implements ChainsInterface
     /**
      * Run the validator chain.
      *
-     * @param mixed The test case to validate.
+     * @param mixed $ts The test case to validate.
      *
      * @return bool Return TRUE if the test case is valid and
      *              FALSE if otherwise.
