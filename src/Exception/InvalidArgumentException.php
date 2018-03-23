@@ -11,6 +11,6 @@ namespace Betelgeuse\Validator\Exception;
 /**
  * InvalidArgumentException.
  */
-class InvalidArgumentException extends \Exception implements ExceptionInterface
+class InvalidArgumentException extends \InvalidArgumentException implements ExceptionInterface
 {
 }
