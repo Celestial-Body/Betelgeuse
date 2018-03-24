@@ -11,6 +11,6 @@ namespace Betelgeuse\Validator;
 /**
  * AbstractValidator.
  */
-class AbstractValidator
+class AbstractValidator implements AbstractValidatorInterface
 {
 }
