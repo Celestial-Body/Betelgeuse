@@ -9,6 +9,7 @@
     <issueHandlers>
         <RedundantConditionGivenDocblockType errorLevel="info" />
         <PropertyNotSetInConstructor errorLevel="suppress" />
+        <RawObjectIteration errorLevel="suppress" />
         <TooFewArguments errorLevel="suppress" />
         <MixedAssignment errorLevel="suppress" />
     </issueHandlers>
