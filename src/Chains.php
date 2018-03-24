@@ -46,15 +46,15 @@ class Chains implements ChainsInterface
         if (!\is_array($validators) && !($validators instanceof Traversable)) {
             throw new Exception\InvalidArgumentException(\sprintf(
                 'The variable $validators needs to be foreach compatible. Passed: %s.',
-                \gettype($validators);
+                \gettype($validators)
             ));
-        }        
+        }
         foreach ($validators as $validator) {
             $this->list->attach($validator);
             if (!($validator instanceof ValidatorInterface)) {
                 throw new Exception\InvalidArgumentException(\sprintf(
                     'The variable $validator needs to be an instance of ValidatorInterface. Passed: %s.',
-                    \gettype($validator);
+                    \gettype($validator)
                 ));
             }
             $this->keys += [
