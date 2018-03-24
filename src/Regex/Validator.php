@@ -108,7 +108,7 @@ class Validator extends AbstractValidator implements ValidatorInterface
                 } elseif (isset($this->options['patterns'])) {
                     foreach ($this->options['patterns'] as $pattern) {
                         if (empty($this->options['pattern']) || $this->options['pattern'] == '') {
-                            $return['errors'] = Messages::NO_PATTERN_DETECTED;
+                            \array_push($return['errors'], Messages::NO_PATTERN_DETECTED);
                             $return['result'] = [];
                             goto stop;
                         }
