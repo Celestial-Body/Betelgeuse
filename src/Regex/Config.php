@@ -55,7 +55,7 @@ class Config implements ConfigInterface
         } elseif (\depth($options) != 1 || \depth($options) != 2) {
             throw new DomainException(\sprintf(
                 'The variable $options needs an array depth of 1 or 2. Passed: $s.',
-                \depth($options);
+                \depth($options)
             ));
         } elseif (\count($options) > 4) {
             throw new DomainException('There are too many array key elements.');
