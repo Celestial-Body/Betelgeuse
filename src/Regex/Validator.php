@@ -50,13 +50,10 @@ class Validator extends AbstractValidator implements ValidatorInterface
      */
     public function validate($ts)
     {
-        $return = [
-            'result' => [
-            ]
-        ];
+        $return = [ 'result' => [ ]];
+        $return['errors'] = [];
         if (empty($ts) || $ts == '') {
-            $return['error'] = Messages::NO_TESTCASE_PROVIDED;
-            goto stop;
+            \array_push($return['errors'], Messages::NO_TESTCASE_PROVIDED);
         }
         if (!isset($this->options['flags']) || empty($this->options['flags'])) {
             $this->options['flags'] = 0;
@@ -66,26 +63,24 @@ class Validator extends AbstractValidator implements ValidatorInterface
         }
         if (!\is_array($ts) !($ts instanceof Traversable)) {
             if (!\is_string($ts)) {
-                $return['error'] = Messages::WRONG_DATA_TYPE;
-                goto stop;
+                \array_push($return['errors'], Messages::WRONG_DATA_TYPE);
             }
             if (isset($this->options['pattern'])) {
                 if (empty($this->options['pattern']) || $this->options['pattern'] == '') {
-                    $return['error'] = Messages::NO_PATTERN_DETECTED;
-                    goto stop;
+                    \array_push($return['errors'], Messages::NO_PATTERN_DETECTED);
                 }
+                goto stop;
                 if (\preg_match($this->options['pattern'], $ts, $flags, $offset)) {
                     $return['result'][$ts] = 'valid';
-                    goto stop;
                 } else {
                     $return['result'][$ts] = 'invalid';
                 }
             } elseif (isset($this->options['patterns'])) {
                 foreach ($this->options['patterns'] as $pattern) {
                     if (empty($this->options['pattern']) || $this->options['pattern'] == '') {
-                        $return['error'] = Messages::NO_PATTERN_DETECTED;
+                        \array_push($return['errors'], Messages::NO_PATTERN_DETECTED);
                         $return['result'] = [];
-                        goto stop;
+                        break;
                     }
                     if (\preg_match($pattern, $ts, $flags, $offset)) {
                         $return['result'][$ts] = 'valid';
@@ -97,18 +92,15 @@ class Validator extends AbstractValidator implements ValidatorInterface
             }
         } else {
             foreach ($ts as $testcase) {
-                if (!\is_string($ts)) {
-                    $return['error'] = Messages::WRONG_DATA_TYPE;
-                    $return['result'] = [];
-                    goto stop;
+                if (!\is_string($testcase)) {
+                    \array_push($return['errors'], Messages::WRONG_DATA_TYPE);
                 }
                 if (isset($this->options['pattern'])) {
                     if (empty($this->options['pattern']) || $this->options['pattern'] == '') {
-                        $return['error'] = Messages::NO_PATTERN_DETECTED;
-                        $return['result'] = [];
-                        goto stop;
+                        \array_push($return['errors'], Messages::NO_PATTERN_DETECTED);
                     }
-                    if (\preg_match($this->options['pattern'], $ts, $flags, $offset)) {
+                    goto stop;
+                    if (\preg_match($this->options['pattern'], $testcase, $flags, $offset)) {
                         $return['result'][$testcase] = 'valid';
                     } else {
                         $return['result'][$testcase] = 'invalid';
@@ -116,7 +108,7 @@ class Validator extends AbstractValidator implements ValidatorInterface
                 } elseif (isset($this->options['patterns'])) {
                     foreach ($this->options['patterns'] as $pattern) {
                         if (empty($this->options['pattern']) || $this->options['pattern'] == '') {
-                            $return['error'] = Messages::NO_PATTERN_DETECTED;
+                            $return['errors'] = Messages::NO_PATTERN_DETECTED;
                             $return['result'] = [];
                             goto stop;
                         }
@@ -131,6 +123,7 @@ class Validator extends AbstractValidator implements ValidatorInterface
             }
         }
         stop:
+        $this->curError = $return['errors'];
         return $return;
     }
 }
