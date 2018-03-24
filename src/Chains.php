@@ -43,7 +43,7 @@ class Chains implements ChainsInterface
             throw new Exception\InvalidArgumentException('No validators were passed.');
         }
         $this->list = new SplObjectStorage();
-        if (!\is_array() && !($validators instanceof Traversable)) {
+        if (!\is_array($validators) && !($validators instanceof Traversable)) {
             throw new Exception\InvalidArgumentException(\sprintf(
                 'The variable $validators needs to be foreach compatible. Passed: %s.',
                 \gettype($validators);
