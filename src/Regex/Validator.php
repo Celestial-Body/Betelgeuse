@@ -20,15 +20,15 @@ class Validator extends AbstractValidator implements ValidatorInterface
 {
     
     /**
+     * @var array $curError The current error or errors.
+     */
+    public $curErrors = [];
+    
+    /**
      * @var array $options The config options.
      */
     private $options = [];
-    
-    /**
-     * @var array $curError The current error.
-     */
-    protected $curErrors = [];
-    
+
     /**
      * Set the config options to use.
      *
