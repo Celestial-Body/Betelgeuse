@@ -13,4 +13,17 @@ namespace Betelgeuse\Validator;
  */
 class AbstractValidator implements AbstractValidatorInterface
 {
+    
+    abstract protected function getErrors();
+    
+    /**
+     * Return all errors based on validator messages.
+     *
+     * @return array Return an array with a list of errors based
+     *               the validator.
+     */
+    public function listErrors()
+    {
+        return $this->getErrors();
+    }
 }
