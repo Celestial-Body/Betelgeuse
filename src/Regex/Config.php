@@ -92,12 +92,12 @@ class Config implements ConfigInterface
             }
             if (\array_key_exists('flags')) {
                 if (!\in_array($options['flags'], $this->list)) {
-                    throw new UnexpectedValueExcepton('The variable $options[\'flags\'] is unknown.');   
+                    throw new UnexpectedValueExcepton('The variable $options[\'flags\'] is unknown.');
                 }
             }
             if (\array_key_exists('offset')) {
                 if (!\is_int($options['offset'])) {
-                    throw new InvalidArgumentExcepton('The variable $options[\'offest\'] needs to be an integer.');   
+                    throw new InvalidArgumentExcepton('The variable $options[\'offest\'] needs to be an integer.');
                 }
             }
         }
