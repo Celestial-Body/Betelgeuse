@@ -133,16 +133,4 @@ class Validator extends AbstractValidator implements ValidatorInterface
         $this->curError = $return['errors'];
         return $return;
     }
-    
-    /**
-     * Return the errors to the abstract validator.
-     *
-     * @return array $list The list of errors.
-     *
-     * @codeCoverageIgnore
-     */
-    protected function getErrors()
-    {
-        return $this->curErrors;
-    }
 }
