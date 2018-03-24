@@ -61,7 +61,7 @@ class Validator extends AbstractValidator implements ValidatorInterface
         if (!isset($this->options['offset']) || empty($this->options['offset']) || $this->options['offset'] == '') {
             $this->options['offset'] = 0;
         }
-        if (!\is_array($ts) !($ts instanceof Traversable)) {
+        if (!\is_array($ts) && !($ts instanceof Traversable)) {
             if (!\is_string($ts)) {
                 \array_push($return['errors'], Messages::WRONG_DATA_TYPE);
             }
