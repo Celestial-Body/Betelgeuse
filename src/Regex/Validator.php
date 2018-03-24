@@ -89,6 +89,8 @@ class Validator extends AbstractValidator implements ValidatorInterface
                         break;
                     }
                 }
+            } else {
+                \array_push($return['errors'], Messages::NO_PATTERN_DETECTED);
             }
         } else {
             foreach ($ts as $testcase) {
@@ -105,6 +107,7 @@ class Validator extends AbstractValidator implements ValidatorInterface
                     } else {
                         $return['result'][$testcase] = 'invalid';
                     }
+                    goto stop;
                 } elseif (isset($this->options['patterns'])) {
                     foreach ($this->options['patterns'] as $pattern) {
                         if (empty($this->options['pattern']) || $this->options['pattern'] == '') {
@@ -119,6 +122,10 @@ class Validator extends AbstractValidator implements ValidatorInterface
                             break;
                         }
                     }
+                } else {
+                    \array_push($return['errors'], Messages::NO_PATTERN_DETECTED);
+                    $return['result'] = [];
+                    goto stop;
                 }
             }
         }
