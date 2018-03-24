@@ -16,7 +16,7 @@ use Betelgeuse\Validator\Traversable;
 /**
  * Validator.
  */
-class Validator extends AbstractValidator implements ValidatorInterface
+class Validator implements ValidatorInterface
 {
     
     /**
