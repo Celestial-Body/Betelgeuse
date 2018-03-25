@@ -50,7 +50,7 @@ class Chains implements ChainsInterface
             ));
         }
         foreach ($validators as $validator) {
-            $this->list->attach($validator);
+            $this->list->attach((object) $validator);
             if (!($validator instanceof ValidatorInterface)) {
                 throw new Exception\InvalidArgumentException(\sprintf(
                     'The variable $validator needs to be an instance of ValidatorInterface. Passed: %s.',
