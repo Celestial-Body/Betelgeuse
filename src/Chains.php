@@ -76,10 +76,10 @@ class Chains implements ChainsInterface
         foreach ($keys as $key) {
             if ($this->list->contains($key)) {
                 if (!$key->validate($ts)) {
-                    return \false;
+                    return (bool) \false;
                 }
             }
         }
-        return \true;
+        return (bool) \true;
     }
 }
